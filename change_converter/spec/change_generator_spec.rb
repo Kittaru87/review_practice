@@ -46,7 +46,17 @@ describe 'change generator' do
     expect(@change_generator.convert(37)).to eq ["£20", "£10", "£5", "£1", "£1"]
   end
 
+  it 'should return 1 £1 and 50p' do
+    expect(@change_generator.convert(1.50)).to eq ["£1", "50p"]
+  end
 
+  it 'should return 1 £1, 50p, 20p' do
+    expect(@change_generator.convert(1.70)).to eq ["£1", "50p", "20p"]
+  end
+
+  it 'should return 1 £1, 50p, 20p, 10p' do
+    expect(@change_generator.convert(1.80)).to eq ["£1", "50p", "20p", "10p"]
+  end
 
 
 end
